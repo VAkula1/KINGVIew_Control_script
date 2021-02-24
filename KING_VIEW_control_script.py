@@ -1,6 +1,7 @@
 import os
 import paramiko
 import pickle
+import sys
 import time
 
 
@@ -70,7 +71,11 @@ try:
     sftp_client=ssh.open_sftp()
 
 except:
+
     print('Сервер недоступен')
+    print('Скрипт завершает работу')
+    time.sleep(5)
+    sys.exit()
 
 # удалить массив в данными для авторизации
 def destroy_auth():
